@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personalize Your Journey</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0D0B12;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 70px;
+            border-bottom: 1px solid #2A2333;
+        }
+
+        .logo {
+            color: #B875FF;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .back {
+            color: #D8D3DF;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 600px;
+            max-width: 90%;
+            margin: 60px auto;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .heading h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .heading h1 span {
+            color: #B875FF;
+        }
+
+        .heading p {
+            color: #C8C2D0;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .form-box {
+            background-color: #1A1522;
+            border: 1px solid #39264D;
+            border-radius: 20px;
+            padding: 35px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #D8D3DF;
+            font-size: 16px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #4A3A57;
+            border-radius: 10px;
+            background-color: #241D2E;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #B875FF;
+        }
+
+        select option {
+            background-color: #241D2E;
+            color: white;
+        }
+
+        .continue-button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: #7B2CBF;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .continue-button:hover {
+            background-color: #B875FF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Student Success</div>
+
+        <a href="index.html" class="back">
+            ← Back
+        </a>
+    </nav>
+
+
+    <div class="container">
+
+        <div class="heading">
+
+            <h1>
+                Let's personalize
+                <span>your journey</span>
+            </h1>
+
+            <p>
+                Tell us a little about yourself so we can
+                create a better learning experience for you.
+            </p>
+
+        </div>
+
+
+        <div class="form-box">
+
+            <!-- Name -->
+            <div class="form-group">
+
+                <label>Your Name</label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter your name"
+                >
+
+            </div>
+
+
+            <!-- Year -->
+            <div class="form-group">
+
+                <label>Year of Study</label>
+
+                <select id="year">
+
+                    <option>Select your year</option>
+
+                    <option>1st Year</option>
+
+                    <option>2nd Year</option>
+
+                    <option>3rd Year</option>
+
+                    <option>4th Year</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Branch -->
+            <div class="form-group">
+
+                <label>Course / Branch</label>
+
+                <input
+                    type="text"
+                    id="branch"
+                    placeholder="Example: AI & ML"
+                >
+
+            </div>
+
+
+            <!-- CGPA -->
+            <div class="form-group">
+
+                <label>Current CGPA</label>
+
+                <input
+                    type="number"
+                    id="cgpa"
+                    placeholder="Example: 8.2"
+                    min="0"
+                    max="10"
+                    step="0.1"
+                >
+
+            </div>
+
+
+            <!-- Goal -->
+            <div class="form-group">
+
+                <label>Your Main Goal</label>
+
+                <select id="goal">
+
+                    <option>Select your goal</option>
+
+                    <option>Improve my CGPA</option>
+
+                    <option>Prepare for placements</option>
+
+                    <option>Learn new skills</option>
+
+                    <option>Prepare for competitive exams</option>
+
+                    <option>Build projects</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Study Time -->
+            <div class="form-group">
+
+                <label>Available Study Time</label>
+
+                <select id="studyTime">
+
+                    <option>Select study time</option>
+
+                    <option>1 hour/day</option>
+
+                    <option>2 hours/day</option>
+
+                    <option>3 hours/day</option>
+
+                    <option>4+ hours/day</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Continue Button -->
+            <button
+                class="continue-button"
+                onclick="saveStudentData()"
+            >
+                Continue →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Save Data -->
+    <script>
+
+        
+        async function saveStudentData() {
+    const student = {
+        name: document.getElementById("studentName").value.trim(),
+        year: document.getElementById("year").value,
+        branch: document.getElementById("branch").value.trim(),
+        cgpa: document.getElementById("cgpa").value,
+        goal: document.getElementById("goal").value,
+        studyTime: document.getElementById("studyTime").value
+    };
+
+    if (
+    !student.name ||
+    !student.branch ||
+    student.year === "Select your year" ||
+    student.goal === "Select your goal" ||
+    student.studyTime === "Select study time" ||
+    student.cgpa === ""
+) {
+    alert("Please fill in all required fields.");
+    return;
+}
+
+const cgpaValue = Number(student.cgpa);
+
+if (!Number.isFinite(cgpaValue) || cgpaValue < 0 || cgpaValue > 10) {
+    alert("Please enter a valid CGPA between 0 and 10.");
+    return;
+}
+
+student.cgpa = cgpaValue;
+
+    try {
+        const response = await fetch("http://localhost:3001/students", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(student)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.error || "Could not save student.");
+        }
+
+        localStorage.setItem("studentName", student.name);
+        localStorage.setItem("year", student.year);
+        localStorage.setItem("branch", student.branch);
+        localStorage.setItem("cgpa", student.cgpa);
+        localStorage.setItem("goal", student.goal);
+        localStorage.setItem("studyTime", student.studyTime);
+
+        window.location.assign("/success.html");
+
+    } catch (error) {
+        alert("Could not save your details. Make sure the backend is running at localhost:3001. " + error.message);
+    }
+}
+
+    </script>
+
+</body>
+</html>

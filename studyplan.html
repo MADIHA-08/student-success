@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Your AI Study Plan</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0D0B12;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 70px;
+            border-bottom: 1px solid #2A2333;
+        }
+
+        .logo {
+            color: #B875FF;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .profile {
+            color: #D8D3DF;
+        }
+
+        .container {
+            width: 1100px;
+            max-width: 90%;
+            margin: 50px auto;
+        }
+
+        .heading {
+            text-align: center;
+        }
+
+        .heading h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .heading h1 span {
+            color: #B875FF;
+        }
+
+        .heading p {
+            color: #C8C2D0;
+            font-size: 17px;
+        }
+
+        .ai-plan {
+            margin-top: 40px;
+            background-color: #1A1522;
+            border: 1px solid #7B2CBF;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .ai-plan h2 {
+            color: #B875FF;
+            margin-top: 0;
+        }
+
+        .ai-plan p {
+            color: #D8D3DF;
+            line-height: 1.7;
+        }
+
+        .sessions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .session {
+            background-color: #1A1522;
+            border: 1px solid #39264D;
+            border-radius: 18px;
+            padding: 25px;
+        }
+
+        .session h3 {
+            color: #B875FF;
+            margin-top: 0;
+        }
+
+        .session p {
+            color: #D8D3DF;
+            line-height: 1.6;
+        }
+
+        .priority-box {
+            margin-top: 30px;
+            background-color: #1A1522;
+            border: 1px solid #39264D;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .priority-box h2 {
+            color: #B875FF;
+        }
+
+        .priority-box ul {
+            color: #D8D3DF;
+            line-height: 2;
+            padding-left: 25px;
+        }
+
+        .progress-section {
+            margin-top: 30px;
+            background-color: #1A1522;
+            border: 1px solid #39264D;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #2A2333;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .progress {
+            width: 0%;
+            height: 12px;
+            background-color: #7B2CBF;
+            border-radius: 10px;
+        }
+
+        .success-button {
+            display: block;
+            width: 250px;
+            margin: 35px auto 0;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: #7B2CBF;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .success-button:hover {
+            background-color: #B875FF;
+        }
+
+
+        @media (max-width: 800px) {
+
+            .sessions {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            .heading h1 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <nav>
+
+        <div class="logo">
+            Student Success
+        </div>
+
+        <div class="profile">
+            AI Study Planner
+        </div>
+
+    </nav>
+
+
+    <div class="container">
+
+
+        <!-- Heading -->
+
+        <div class="heading">
+
+            <h1>
+                Your
+                <span>AI Study Plan</span>
+            </h1>
+
+            <p id="planSubtitle">
+                Creating your personalized study plan...
+            </p>
+
+        </div>
+
+
+        <!-- AI Plan -->
+
+        <div class="ai-plan">
+
+            <h2>
+                🤖 AI Generated Plan
+            </h2>
+
+            <p id="aiPlanText">
+                Analyzing your information...
+            </p>
+
+        </div>
+
+
+        <!-- Study Sessions -->
+
+        <div class="sessions">
+
+
+            <div class="session">
+
+                <h3>
+                    📖 Session 1
+                </h3>
+
+                <p id="session1">
+                    Creating your first session...
+                </p>
+
+            </div>
+
+
+            <div class="session">
+
+                <h3>
+                    💻 Session 2
+                </h3>
+
+                <p id="session2">
+                    Creating your second session...
+                </p>
+
+            </div>
+
+
+            <div class="session">
+
+                <h3>
+                    🧠 Session 3
+                </h3>
+
+                <p id="session3">
+                    Creating your third session...
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Priorities -->
+
+        <div class="priority-box">
+
+            <h2>
+                🎯 Today's Priorities
+            </h2>
+
+            <ul>
+
+                <li id="priority1">
+                    Analyzing your goal...
+                </li>
+
+                <li id="priority2">
+                    Analyzing your branch...
+                </li>
+
+                <li id="priority3">
+                    Analyzing your study time...
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- Progress -->
+
+        <div class="progress-section">
+
+            <h2>
+                📊 Today's Progress
+            </h2>
+
+            <p id="todayProgress">
+                Your study progress will begin here.
+            </p>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    id="todayProgressBar"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Next Page -->
+
+        <a
+            href="progress.html"
+            class="success-button"
+        >
+            View My Progress →
+        </a>
+
+
+    </div>
+
+
+    <script>
+
+        /* Get information from Page 2 */
+
+        const studentName =
+            localStorage.getItem("studentName");
+
+        const year =
+            localStorage.getItem("year");
+
+        const branch =
+            localStorage.getItem("branch");
+
+        const cgpa =
+            localStorage.getItem("cgpa");
+
+        const goal =
+            localStorage.getItem("goal");
+
+        const studyTime =
+            localStorage.getItem("studyTime");
+
+
+        /* Basic information */
+
+        const userBranch =
+            branch || "your branch";
+
+        const userGoal =
+            goal || "your goal";
+
+        const userTime =
+            studyTime || "your available study time";
+
+
+        /* ----------------------------------
+           PLAN ACCORDING TO GOAL
+        ---------------------------------- */
+
+
+        if (goal === "Improve my CGPA") {
+
+
+            document.getElementById("planSubtitle").textContent =
+                "A personalized academic improvement plan for " +
+                userBranch +
+                ".";
+
+
+            document.getElementById("aiPlanText").textContent =
+                "Based on your current CGPA of " +
+                (cgpa || "not provided") +
+                " and your goal to improve your CGPA, " +
+                "your plan focuses on difficult subjects, " +
+                "practice, revision, and regular self-assessment. " +
+                "You have " +
+                userTime +
+                " available each day.";
+
+
+            document.getElementById("session1").textContent =
+                "Focus on your most difficult subject. " +
+                "Study important concepts and understand the topics clearly.";
+
+
+            document.getElementById("session2").textContent =
+                "Practice important questions and problems " +
+                "from your " +
+                userBranch +
+                " subjects.";
+
+
+            document.getElementById("session3").textContent =
+                "Revise everything learned today and test yourself " +
+                "without looking at your notes.";
+
+
+            document.getElementById("priority1").textContent =
+                "Complete one difficult topic";
+
+
+            document.getElementById("priority2").textContent =
+                "Practice important questions";
+
+
+            document.getElementById("priority3").textContent =
+                "Revise today's learning";
+
+
+        }
+
+
+        else if (goal === "Prepare for placements") {
+
+
+            document.getElementById("planSubtitle").textContent =
+                "A personalized placement preparation plan for " +
+                userBranch +
+                ".";
+
+
+            document.getElementById("aiPlanText").textContent =
+                "Your plan is designed for placement preparation. " +
+                "Since you are studying " +
+                userBranch +
+                ", the focus is on coding, core concepts, " +
+                "projects, and interview preparation. " +
+                "Your available study time is " +
+                userTime +
+                ".";
+
+
+            document.getElementById("session1").textContent =
+                "Practice DSA and coding problems. " +
+                "Start with problems suitable for your current level.";
+
+
+            document.getElementById("session2").textContent =
+                "Study important " +
+                userBranch +
+                " concepts and strengthen your technical knowledge.";
+
+
+            document.getElementById("session3").textContent =
+                "Work on projects or practice interview questions " +
+                "and explain your solutions clearly.";
+
+
+            document.getElementById("priority1").textContent =
+                "Solve coding problems";
+
+
+            document.getElementById("priority2").textContent =
+                "Revise core technical concepts";
+
+
+            document.getElementById("priority3").textContent =
+                "Practice interview questions";
+
+
+        }
+
+
+        else if (goal === "Learn new skills") {
+
+
+            document.getElementById("planSubtitle").textContent =
+                "A skill-building plan designed for " +
+                userBranch +
+                ".";
+
+
+            document.getElementById("aiPlanText").textContent =
+                "Your plan focuses on learning one useful skill " +
+                "related to " +
+                userBranch +
+                ". " +
+                "Your " +
+                userTime +
+                " will be divided between learning, practice, " +
+                "and applying the skill."
+
+
+            document.getElementById("session1").textContent =
+                "Learn one new concept or skill related to " +
+                userBranch +
+                ".";
+
+
+            document.getElementById("session2").textContent =
+                "Practice the new concept by writing code " +
+                "or completing a small exercise.";
+
+
+            document.getElementById("session3").textContent =
+                "Apply what you learned by creating a small practical task.";
+
+
+            document.getElementById("priority1").textContent =
+                "Learn one new concept";
+
+
+            document.getElementById("priority2").textContent =
+                "Practice what you learned";
+
+
+            document.getElementById("priority3").textContent =
+                "Apply the skill practically";
+
+
+        }
+
+
+        else if (goal === "Prepare for competitive exams") {
+
+
+            document.getElementById("planSubtitle").textContent =
+                "A focused competitive exam preparation plan.";
+
+
+            document.getElementById("aiPlanText").textContent =
+                "Your plan focuses on concept clarity, " +
+                "problem solving, previous questions, and revision. " +
+                "The plan is designed around your available " +
+                userTime +
+                ".";
+
+
+            document.getElementById("session1").textContent =
+                "Study an important concept and make short notes.";
+
+
+            document.getElementById("session2").textContent =
+                "Solve practice and previous examination questions.";
+
+
+            document.getElementById("session3").textContent =
+                "Revise the topic and take a short self-test.";
+
+
+            document.getElementById("priority1").textContent =
+                "Complete one important concept";
+
+
+            document.getElementById("priority2").textContent =
+                "Solve practice questions";
+
+
+            document.getElementById("priority3").textContent =
+                "Take a short self-test";
+
+
+        }
+
+
+        else if (goal === "Build projects") {
+
+
+            document.getElementById("planSubtitle").textContent =
+                "A project-building plan based on " +
+                userBranch +
+                ".";
+
+
+            document.getElementById("aiPlanText").textContent =
+                "Your plan focuses on practical development. " +
+                "You will learn a concept, implement it, " +
+                "and gradually build a project related to " +
+                userBranch +
+                ".";
+
+
+            document.getElementById("session1").textContent =
+                "Learn the concept or technology needed " +
+                "for your project.";
+
+
+            document.getElementById("session2").textContent =
+                "Write code and implement one small project feature.";
+
+
+            document.getElementById("session3").textContent =
+                "Test your work, fix errors, and improve the project.";
+
+
+            document.getElementById("priority1").textContent =
+                "Learn the required concept";
+
+
+            document.getElementById("priority2").textContent =
+                "Build one project feature";
+
+
+            document.getElementById("priority3").textContent =
+                "Test and improve the project";
+
+
+        }
+
+
+        else {
+
+
+            document.getElementById("planSubtitle").textContent =
+                "Complete your profile to generate a personalized plan.";
+
+
+            document.getElementById("aiPlanText").textContent =
+                "Enter your main goal on the previous page " +
+                "so the AI study planner can create a plan for you.";
+
+
+            document.getElementById("session1").textContent =
+                "Select your main goal first.";
+
+
+            document.getElementById("session2").textContent =
+                "Enter your available study time.";
+
+
+            document.getElementById("session3").textContent =
+                "Return here to generate your plan.";
+
+
+            document.getElementById("priority1").textContent =
+                "Choose your goal";
+
+
+            document.getElementById("priority2").textContent =
+                "Choose your study time";
+
+
+            document.getElementById("priority3").textContent =
+                "Generate your personalized plan";
+
+        }
+
+
+        /* ----------------------------------
+           TODAY'S PROGRESS
+        ---------------------------------- */
+
+        let todayProgress = 0;
+
+
+        if (studyTime === "1 hour/day") {
+
+            todayProgress = 25;
+
+        }
+        else if (studyTime === "2 hours/day") {
+
+            todayProgress = 35;
+
+        }
+        else if (studyTime === "3 hours/day") {
+
+            todayProgress = 45;
+
+        }
+        else if (studyTime === "4+ hours/day") {
+
+            todayProgress = 55;
+
+        }
+
+
+        document.getElementById("todayProgressBar").style.width =
+            todayProgress + "%";
+
+
+        document.getElementById("todayProgress").textContent =
+            "Your personalized daily target is based on " +
+            userTime +
+            ". Current planned progress: " +
+            todayProgress +
+            "%.";
+
+
+    </script>
+
+
+</body>
+</html>

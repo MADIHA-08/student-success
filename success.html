@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>AI Student Dashboard</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0D0B12;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 70px;
+            border-bottom: 1px solid #2A2333;
+        }
+
+        .logo {
+            color: #B875FF;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .profile {
+            color: #D8D3DF;
+        }
+
+        .container {
+            width: 1100px;
+            max-width: 90%;
+            margin: 50px auto;
+        }
+
+        .welcome h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .welcome h1 span {
+            color: #B875FF;
+        }
+
+        .welcome p {
+            color: #C8C2D0;
+            font-size: 17px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: #1A1522;
+            border: 1px solid #39264D;
+            border-radius: 18px;
+            padding: 25px;
+        }
+
+        .card h3 {
+            color: #C8C2D0;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .ai-box {
+            margin-top: 30px;
+            background-color: #1A1522;
+            border: 1px solid #7B2CBF;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .ai-box h2 {
+            color: #B875FF;
+            margin-top: 0;
+        }
+
+        .ai-box p {
+            color: #D8D3DF;
+            line-height: 1.7;
+        }
+
+        .progress-section {
+            margin-top: 30px;
+            background-color: #1A1522;
+            border: 1px solid #39264D;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #2A2333;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .progress {
+            height: 12px;
+            background-color: #7B2CBF;
+            border-radius: 10px;
+        }
+
+        .plan-button {
+            display: block;
+            width: 250px;
+            margin: 35px auto 0;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: #7B2CBF;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .plan-button:hover {
+            background-color: #B875FF;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <nav>
+
+        <div class="logo">
+            Student Success
+        </div>
+
+        <div class="profile">
+            AI Student Dashboard
+        </div>
+
+    </nav>
+
+
+    <div class="container">
+
+
+        <!-- Welcome -->
+
+        <div class="welcome">
+
+            <h1>
+                Welcome,
+                <span id="displayName">Student</span>
+                👋
+            </h1>
+
+            <p id="welcomeMessage">
+                Your personalized learning journey starts here.
+            </p>
+
+        </div>
+
+
+        <!-- Student Information -->
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <h3>
+                    🎯 Main Goal
+                </h3>
+
+                <h2 id="displayGoal">
+                    --
+                </h2>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    ⏰ Study Time
+                </h3>
+
+                <h2 id="displayStudyTime">
+                    --
+                </h2>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🎓 Current CGPA
+                </h3>
+
+                <h2 id="displayCgpa">
+                    --
+                </h2>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    💻 Branch
+                </h3>
+
+                <h2 id="displayBranch">
+                    --
+                </h2>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    📚 Year
+                </h3>
+
+                <h2 id="displayYear">
+                    --
+                </h2>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- AI Recommendation -->
+
+        <div class="ai-box">
+
+            <h2>
+                🤖 AI Recommendation
+            </h2>
+
+            <p id="aiRecommendation">
+                Analyzing your information...
+            </p>
+
+        </div>
+
+
+        <!-- Learning Progress -->
+
+        <div class="progress-section">
+
+            <h2>
+                📊 Your Learning Progress
+            </h2>
+
+            <p id="progressText">
+                Calculating your personalized progress...
+            </p>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    id="progressBar"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Study Plan -->
+
+        <a
+            href="studyplan.html"
+            class="plan-button"
+        >
+            Generate My Study Plan →
+        </a>
+
+
+    </div>
+
+
+    <script>
+
+        /* Get information entered by the user */
+
+        const studentName =
+            localStorage.getItem("studentName");
+
+        const year =
+            localStorage.getItem("year");
+
+        const branch =
+            localStorage.getItem("branch");
+
+        const cgpa =
+            localStorage.getItem("cgpa");
+
+        const goal =
+            localStorage.getItem("goal");
+
+        const studyTime =
+            localStorage.getItem("studyTime");
+
+
+        /* Show user information */
+
+        document.getElementById("displayName").textContent =
+            studentName || "Student";
+
+        document.getElementById("displayYear").textContent =
+            year || "Not selected";
+
+        document.getElementById("displayBranch").textContent =
+            branch || "Not selected";
+
+        document.getElementById("displayCgpa").textContent =
+            cgpa ? cgpa + " / 10" : "--";
+
+        document.getElementById("displayGoal").textContent =
+            goal || "Not selected";
+
+        document.getElementById("displayStudyTime").textContent =
+            studyTime || "Not selected";
+
+
+        /* Personalized welcome message */
+
+        document.getElementById("welcomeMessage").textContent =
+            "Your " +
+            (branch || "student") +
+            " learning journey is being personalized for you.";
+
+
+        /* ----------------------------------
+           CALCULATE PERSONALIZED PROGRESS
+        ---------------------------------- */
+
+        let progress = 0;
+
+
+        /* CGPA contribution */
+
+        if (cgpa) {
+
+            const cgpaNumber = parseFloat(cgpa);
+
+            progress += cgpaNumber * 5;
+
+        }
+
+
+        /* Study time contribution */
+
+        if (studyTime === "1 hour/day") {
+
+            progress += 5;
+
+        }
+        else if (studyTime === "2 hours/day") {
+
+            progress += 10;
+
+        }
+        else if (studyTime === "3 hours/day") {
+
+            progress += 15;
+
+        }
+        else if (studyTime === "4+ hours/day") {
+
+            progress += 20;
+
+        }
+
+
+        /* Goal contribution */
+
+        if (goal === "Improve my CGPA") {
+
+            progress += 5;
+
+        }
+        else if (goal === "Prepare for placements") {
+
+            progress += 10;
+
+        }
+        else if (goal === "Learn new skills") {
+
+            progress += 8;
+
+        }
+        else if (goal === "Prepare for competitive exams") {
+
+            progress += 7;
+
+        }
+        else if (goal === "Build projects") {
+
+            progress += 9;
+
+        }
+
+
+        /* Keep progress between 10 and 95 */
+
+        progress = Math.round(progress);
+
+        if (progress < 10) {
+
+            progress = 10;
+
+        }
+
+        if (progress > 95) {
+
+            progress = 95;
+
+        }
+
+
+        /* Show progress */
+
+        document.getElementById("progressBar").style.width =
+            progress + "%";
+
+        document.getElementById("progressText").textContent =
+            "Your personalized readiness score is " +
+            progress +
+            "%. Keep learning and stay consistent!";
+
+
+        /* ----------------------------------
+           PERSONALIZED AI RECOMMENDATION
+        ---------------------------------- */
+
+        let recommendation = "";
+
+
+        if (goal === "Improve my CGPA") {
+
+            recommendation =
+                "Your main goal is to improve your CGPA. " +
+                "Focus on your difficult subjects first, " +
+                "practice important questions regularly, " +
+                "and use your available " +
+                (studyTime || "study time") +
+                " for focused revision.";
+
+        }
+
+        else if (goal === "Prepare for placements") {
+
+            recommendation =
+                "Your goal is placement preparation. " +
+                "For " +
+                (branch || "your branch") +
+                ", focus on DSA, core concepts, projects, " +
+                "and interview preparation. " +
+                "Use your " +
+                (studyTime || "available study time") +
+                " consistently.";
+
+        }
+
+        else if (goal === "Learn new skills") {
+
+            recommendation =
+                "Your goal is to learn new skills. " +
+                "Choose one important skill related to " +
+                (branch || "your branch") +
+                " and practice it regularly instead of " +
+                "trying to learn everything at once.";
+
+        }
+
+        else if (goal === "Prepare for competitive exams") {
+
+            recommendation =
+                "Your goal is competitive exam preparation. " +
+                "Focus on concepts, problem solving, " +
+                "previous questions, and regular revision " +
+                "within your " +
+                (studyTime || "available study time") +
+                ".";
+
+        }
+
+        else if (goal === "Build projects") {
+
+            recommendation =
+                "Your goal is project building. " +
+                "Build practical projects related to " +
+                (branch || "your branch") +
+                ", learn while building, and gradually " +
+                "increase the difficulty of your projects.";
+
+        }
+
+        else {
+
+            recommendation =
+                "Complete your profile to receive a personalized " +
+                "AI recommendation based on your goals.";
+
+        }
+
+
+        document.getElementById("aiRecommendation").textContent =
+            recommendation;
+
+    </script>
+
+
+</body>
+</html>

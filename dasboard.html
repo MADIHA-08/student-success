@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Student Success</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0D0B12;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 7%;
+            background-color: #0D0B12;
+            border-bottom: 1px solid #2A2333;
+        }
+
+        .logo {
+            color: #B875FF;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #D8D3DF;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 30px;
+        }
+
+        .welcome {
+            margin-bottom: 35px;
+        }
+
+        .welcome h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .welcome h1 span {
+            color: #B875FF;
+        }
+
+        .welcome p {
+            color: #C8C2D0;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .profile-box,
+        .card,
+        .progress-box {
+            background-color: #1A1522;
+            border: 1px solid #39264D;
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #B875FF;
+            margin-top: 0;
+        }
+
+        .profile-details {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .profile-item {
+            background-color: #251D30;
+            padding: 18px;
+            border-radius: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        .profile-item strong {
+            display: block;
+            color: #C8C2D0;
+            margin-bottom: 8px;
+        }
+
+        .profile-item span {
+            color: white;
+            font-size: 16px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card h2 {
+            font-size: 21px;
+        }
+
+        .number {
+            font-size: 38px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .card p,
+        .progress-box p {
+            color: #C8C2D0;
+            line-height: 1.7;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 14px;
+            background-color: #30283A;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 18px;
+        }
+
+        .progress {
+            width: 70%;
+            height: 100%;
+            background-color: #B875FF;
+            border-radius: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 14px 24px;
+            background-color: #7B2CBF;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .back-button:hover {
+            background-color: #B875FF;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 20px;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+
+            .welcome h1 {
+                font-size: 32px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Student Success 💜</div>
+        <a href="index.html">← Home</a>
+    </nav>
+
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="welcome">
+            <h1>Welcome, <span id="displayName">Student</span>!</h1>
+
+            <p>
+                Track your learning, monitor your progress,
+                and move closer to your academic goals.
+            </p>
+        </section>
+
+        <!-- Student Profile -->
+        <section class="profile-box">
+            <h2>🎓 Your Academic Profile</h2>
+
+            <div class="profile-details">
+
+                <div class="profile-item">
+                    <strong>Academic Year</strong>
+                    <span id="displayYear">Not available</span>
+                </div>
+
+                <div class="profile-item">
+                    <strong>Branch</strong>
+                    <span id="displayBranch">Not available</span>
+                </div>
+
+                <div class="profile-item">
+                    <strong>CGPA</strong>
+                    <span id="displayCgpa">Not available</span>
+                </div>
+
+                <div class="profile-item">
+                    <strong>Main Goal</strong>
+                    <span id="displayGoal">Not available</span>
+                </div>
+
+                <div class="profile-item">
+                    <strong>Daily Study Time</strong>
+                    <span id="displayStudyTime">Not available</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Learning Cards -->
+        <section class="cards">
+
+            <div class="card">
+                <h2>📚 Learning</h2>
+                <div class="number">12</div>
+                <p>Courses completed</p>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Goals</h2>
+                <div class="number">8</div>
+                <p>Goals achieved</p>
+            </div>
+
+            <div class="card">
+                <h2>🔥 Streak</h2>
+                <div class="number">15</div>
+                <p>Days of consistent learning</p>
+            </div>
+
+        </section>
+
+        <!-- Overall Progress -->
+        <section class="progress-box">
+            <h2>📈 Overall Progress</h2>
+
+            <p>
+                Your sample academic progress is currently at 70%.
+            </p>
+
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-button">
+            ← Back to Home
+        </a>
+
+    </main>
+
+    <!-- Load Student Information -->
+    <script>
+        function displayStudentDetails() {
+
+            const studentName =
+                localStorage.getItem("studentName");
+
+            const year =
+                localStorage.getItem("year");
+
+            const branch =
+                localStorage.getItem("branch");
+
+            const cgpa =
+                localStorage.getItem("cgpa");
+
+            const goal =
+                localStorage.getItem("goal");
+
+            const studyTime =
+                localStorage.getItem("studyTime");
+
+            document.getElementById("displayName").textContent =
+                studentName || "Student";
+
+            document.getElementById("displayYear").textContent =
+                year || "Not available";
+
+            document.getElementById("displayBranch").textContent =
+                branch || "Not available";
+
+            document.getElementById("displayCgpa").textContent =
+                cgpa || "Not available";
+
+            document.getElementById("displayGoal").textContent =
+                goal || "Not available";
+
+            document.getElementById("displayStudyTime").textContent =
+                studyTime || "Not available";
+        }
+
+        displayStudentDetails();
+    </script>
+
+</body>
+
+</html>

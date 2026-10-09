@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Your Progress</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0D0B12;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 70px;
+            border-bottom: 1px solid #2A2333;
+        }
+
+        .logo {
+            color: #B875FF;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .back {
+            color: #D8D3DF;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 1100px;
+            max-width: 90%;
+            margin: 55px auto;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .heading h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .heading h1 span {
+            color: #B875FF;
+        }
+
+        .heading p {
+            color: #C8C2D0;
+            font-size: 17px;
+        }
+
+        .snapshot,
+        .card,
+        .growth-path,
+        .focus-box,
+        .feedback {
+            background-color: #1A1522;
+            border: 1px solid #39264D;
+        }
+
+        .snapshot {
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .snapshot-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .snapshot h2 {
+            color: #B875FF;
+            margin-bottom: 12px;
+        }
+
+        .snapshot p,
+        .card p,
+        .growth-path p,
+        .focus-message,
+        .feedback p {
+            color: #C8C2D0;
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            border-radius: 18px;
+            padding: 25px;
+        }
+
+        .icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 0 0 12px;
+            color: #B875FF;
+        }
+
+        .growth-path {
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .growth-path h2 {
+            color: #B875FF;
+            margin-top: 0;
+        }
+
+        .focus-box {
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .focus-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .focus-header h2 {
+            color: #B875FF;
+            margin: 0;
+        }
+
+        .focus-percent {
+            color: #B875FF;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 14px;
+            background-color: #2A2333;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #7B2CBF;
+            border-radius: 20px;
+        }
+
+        .feedback {
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 35px;
+        }
+
+        .feedback h2 {
+            color: #B875FF;
+            margin-top: 0;
+        }
+
+        .button-area {
+            text-align: center;
+            margin: 20px 0 50px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #7B2CBF;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #B875FF;
+        }
+
+        @media (max-width: 850px) {
+
+            nav {
+                padding: 20px 30px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .heading h1 {
+                font-size: 34px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <div class="logo">
+        Student Success
+    </div>
+
+    <a href="success.html" class="back">
+        ← Back
+    </a>
+
+</nav>
+
+
+<div class="container">
+
+
+    <div class="heading">
+
+        <h1>
+            Your <span>Progress</span>
+        </h1>
+
+        <p id="headingText">
+            Your personalized student progress
+        </p>
+
+    </div>
+
+
+    <div class="snapshot">
+
+        <div class="snapshot-icon">
+            ♛
+        </div>
+
+        <h2 id="snapshotTitle">
+            Your Student Profile
+        </h2>
+
+        <p id="snapshotText">
+            Your personalized profile will appear here.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="icon">
+                💪
+            </div>
+
+            <h3>
+                Your Strength
+            </h3>
+
+            <p id="strengthText">
+                Your current strengths will be identified from your information.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🎯
+            </div>
+
+            <h3>
+                Next Milestone
+            </h3>
+
+            <p id="milestoneText">
+                Your next milestone will be based on your goal.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🚀
+            </div>
+
+            <h3>
+                Growth Strategy
+            </h3>
+
+            <p id="strategyText">
+                Your strategy will be based on your available study time.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="growth-path">
+
+        <h2>
+            📈 Growth Path
+        </h2>
+
+        <p id="growthPathText">
+            Your personalized growth path
+        </p>
+
+    </div>
+
+
+    <div class="focus-box">
+
+        <div class="focus-header">
+
+            <h2>
+                ⚡ Focus Level
+            </h2>
+
+            <div
+                class="focus-percent"
+                id="focusPercent">
+                0%
+            </div>
+
+        </div>
+
+        <div class="progress-container">
+
+            <div
+                class="progress-bar"
+                id="focusBar">
+            </div>
+
+        </div>
+
+        <p
+            class="focus-message"
+            id="focusMessage">
+            Your focus level is based on your profile.
+        </p>
+
+    </div>
+
+
+    <div class="feedback">
+
+        <h2>
+            🤖 AI Feedback
+        </h2>
+
+        <p id="aiFeedback">
+            Your personalized feedback will appear here.
+        </p>
+
+    </div>
+
+
+    <div class="button-area">
+
+        <a
+            href="motivational.html"
+            class="button">
+
+            Continue to Your Success →
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+    /* GET DATA FROM PAGE 2 */
+
+    var name =
+        localStorage.getItem("studentName") || "Student";
+
+    var year =
+        localStorage.getItem("year") || "2nd Year";
+
+    var branch =
+        localStorage.getItem("branch") || "your course";
+
+    var cgpa =
+        parseFloat(localStorage.getItem("cgpa"));
+
+    if (isNaN(cgpa)) {
+        cgpa = 0;
+    }
+
+    var goal =
+        localStorage.getItem("goal") || "Improve my CGPA";
+
+    var studyTime =
+        localStorage.getItem("studyTime") || "1 hour/day";
+
+
+    /* STUDY HOURS */
+
+    var hours = 1;
+
+    if (studyTime === "2 hours/day") {
+        hours = 2;
+    }
+
+    if (studyTime === "3 hours/day") {
+        hours = 3;
+    }
+
+    if (studyTime === "4+ hours/day") {
+        hours = 4;
+    }
+
+
+    /* SNAPSHOT */
+
+    document.getElementById("headingText").innerHTML =
+        "Hi " + name +
+        "! Your progress is personalized from your information.";
+
+    document.getElementById("snapshotTitle").innerHTML =
+        name + "'s Student Profile";
+
+    document.getElementById("snapshotText").innerHTML =
+        year +
+        " • " +
+        branch +
+        " • CGPA " +
+        cgpa.toFixed(1) +
+        " • " +
+        goal +
+        " • " +
+        studyTime;
+
+
+    /* STRENGTH */
+
+    var strength = "";
+
+    if (cgpa >= 8.5 && hours >= 3) {
+
+        strength =
+            "Your strong CGPA of " +
+            cgpa.toFixed(1) +
+            " combined with " +
+            studyTime +
+            " gives you a strong foundation for achieving your goal.";
+
+    }
+
+    else if (cgpa >= 8) {
+
+        strength =
+            "Your CGPA of " +
+            cgpa.toFixed(1) +
+            " shows a strong academic foundation. You can now turn that foundation into practical progress.";
+
+    }
+
+    else if (cgpa >= 7 && hours >= 3) {
+
+        strength =
+            "You have a good academic base and " +
+            studyTime +
+            " available each day. Consistency can become your biggest advantage.";
+
+    }
+
+    else if (hours >= 3) {
+
+        strength =
+            "Your biggest advantage is your available study time. Using " +
+            studyTime +
+            " with clear priorities can create steady growth.";
+
+    }
+
+    else {
+
+        strength =
+            "You have a starting point to build from. Focused use of your " +
+            studyTime +
+            " can gradually improve your academic and career preparation.";
+
+    }
+
+    document.getElementById("strengthText").innerHTML =
+        strength;
+
+
+    /* MILESTONE */
+
+    var milestone = "";
+
+    if (goal === "Improve my CGPA") {
+
+        var target =
+            Math.min(10, cgpa + 0.5);
+
+        milestone =
+            "Your next milestone is to move from " +
+            cgpa.toFixed(1) +
+            " toward " +
+            target.toFixed(1) +
+            " by improving weak subjects and practicing important questions.";
+
+    }
+
+    else if (goal === "Prepare for placements") {
+
+        milestone =
+            "Your next milestone is placement readiness through coding fundamentals, DSA, problem-solving and a practical project in " +
+            branch +
+            ".";
+
+    }
+
+    else if (goal === "Learn new skills") {
+
+        milestone =
+            "Your next milestone is to choose one skill related to " +
+            branch +
+            ", practice it consistently and apply it in a small practical task.";
+
+    }
+
+    else if (goal === "Build projects") {
+
+        milestone =
+            "Your next milestone is to build a working project that solves a real problem related to " +
+            branch +
+            ".";
+
+    }
+
+    else if (goal === "Prepare for competitive exams") {
+
+        milestone =
+            "Your next milestone is regular question practice, mistake tracking and improvement in accuracy.";
+
+    }
+
+    else {
+
+        milestone =
+            "Your next milestone is to convert your goal into a clear and measurable target.";
+
+    }
+
+    document.getElementById("milestoneText").innerHTML =
+        milestone;
+
+
+    /* STRATEGY */
+
+    var strategy = "";
+
+    if (hours === 1) {
+
+        strategy =
+            "With 1 hour available, focus on one high-priority task each day. Avoid trying to cover too many topics.";
+
+    }
+
+    else if (hours === 2) {
+
+        strategy =
+            "With 2 hours available, divide your time between learning and active practice.";
+
+    }
+
+    else if (hours === 3) {
+
+        strategy =
+            "With 3 hours available, divide your time between learning, practice and revision.";
+
+    }
+
+    else {
+
+        strategy =
+            "With 4+ hours available, balance learning, practice, projects and revision.";
+
+    }
+
+
+    if (goal === "Prepare for placements") {
+
+        strategy +=
+            " Give extra attention to coding, DSA, projects and interviews.";
+
+    }
+
+    else if (goal === "Improve my CGPA") {
+
+        strategy +=
+            " Prioritize weak subjects, important questions and revision.";
+
+    }
+
+    else if (goal === "Build projects") {
+
+        strategy +=
+            " Spend part of your time building and testing your project.";
+
+    }
+
+    else if (goal === "Learn new skills") {
+
+        strategy +=
+            " Follow Learn → Practice → Apply.";
+
+    }
+
+    else if (goal === "Prepare for competitive exams") {
+
+        strategy +=
+            " Include question practice and mistake analysis.";
+
+    }
+
+    document.getElementById("strategyText").innerHTML =
+        strategy;
+
+
+    /* GROWTH PATH */
+
+    var path = "";
+
+    if (goal === "Improve my CGPA") {
+
+        path =
+            "Weak Subjects → Concepts → Important Questions → Revision → Better Marks";
+
+    }
+
+    else if (goal === "Prepare for placements") {
+
+        path =
+            "Fundamentals → Coding → DSA → Projects → Interviews";
+
+    }
+
+    else if (goal === "Learn new skills") {
+
+        path =
+            "Choose Skill → Learn → Practice → Apply → Build";
+
+    }
+
+    else if (goal === "Build projects") {
+
+        path =
+            "Problem → Plan → Build → Test → Improve";
+
+    }
+
+    else if (goal === "Prepare for competitive exams") {
+
+        path =
+            "Concepts → Questions → Mistakes → Revision → Tests";
+
+    }
+
+    else {
+
+        path =
+            "Goal → Routine → Action → Progress → Improvement";
+
+    }
+
+    document.getElementById("growthPathText").innerHTML =
+        path;
+
+
+    /* FOCUS LEVEL */
+
+    var cgpaScore =
+        (cgpa / 10) * 100;
+
+    var timeScore =
+        (hours / 4) * 100;
+
+    var goalScore = 70;
+
+
+    if (goal === "Prepare for placements") {
+        goalScore = 90;
+    }
+
+    else if (goal === "Build projects") {
+        goalScore = 85;
+    }
+
+    else if (goal === "Prepare for competitive exams") {
+        goalScore = 88;
+    }
+
+    else if (goal === "Learn new skills") {
+        goalScore = 80;
+    }
+
+    else if (goal === "Improve my CGPA") {
+        goalScore = 82;
+    }
+
+
+    var yearScore = 70;
+
+    if (year === "1st Year") {
+        yearScore = 60;
+    }
+
+    else if (year === "3rd Year") {
+        yearScore = 85;
+    }
+
+    else if (year === "4th Year") {
+        yearScore = 95;
+    }
+
+
+    var focus =
+        (cgpaScore * 0.30) +
+        (timeScore * 0.30) +
+        (goalScore * 0.25) +
+        (yearScore * 0.15);
+
+
+    focus = Math.round(focus);
+
+    focus = Math.max(20, Math.min(95, focus));
+
+
+    document.getElementById("focusPercent").innerHTML =
+        focus + "%";
+
+    document.getElementById("focusBar").style.width =
+        focus + "%";
+
+
+    /* FOCUS MESSAGE */
+
+    var focusMessage = "";
+
+    if (focus >= 85) {
+
+        focusMessage =
+            "Your profile shows very strong preparation potential.";
+
+    }
+
+    else if (focus >= 70) {
+
+        focusMessage =
+            "Your profile shows strong preparation potential. Consistency can turn this into results.";
+
+    }
+
+    else if (focus >= 55) {
+
+        focusMessage =
+            "You have a good starting level. A clear routine can steadily improve your preparation.";
+
+    }
+
+    else {
+
+        focusMessage =
+            "There is room to grow. Start with focused tasks and build consistency.";
+
+    }
+
+    document.getElementById("focusMessage").innerHTML =
+        focusMessage;
+
+
+    /* AI FEEDBACK */
+
+    var feedback =
+        "You are a " +
+        year +
+        " student studying " +
+        branch +
+        " with a CGPA of " +
+        cgpa.toFixed(1) +
+        ". Your current goal is " +
+        goal.toLowerCase() +
+        " and you have " +
+        studyTime +
+        " available each day. ";
+
+
+    if (cgpa >= 8) {
+
+        feedback +=
+            "Your academic foundation is strong. ";
+
+    }
+
+    else if (cgpa >= 7) {
+
+        feedback +=
+            "You have a good academic foundation that can be strengthened. ";
+
+    }
+
+    else {
+
+        feedback +=
+            "Improving your academic foundation should be an important priority. ";
+
+    }
+
+
+    if (goal === "Prepare for placements") {
+
+        feedback +=
+            "Focus on coding, DSA, projects and interview preparation.";
+
+    }
+
+    else if (goal === "Improve my CGPA") {
+
+        feedback +=
+            "Focus on weak subjects, important questions and regular revision.";
+
+    }
+
+    else if (goal === "Build projects") {
+
+        feedback +=
+            "Use your learning to build practical projects that solve real problems.";
+
+    }
+
+    else if (goal === "Learn new skills") {
+
+        feedback +=
+            "Choose one skill and follow a Learn → Practice → Apply approach.";
+
+    }
+
+    else {
+
+        feedback +=
+            "Keep your preparation consistent and track your improvement.";
+
+    }
+
+
+    document.getElementById("aiFeedback").innerHTML =
+        feedback;
+
+</script>
+
+
+</body>
+</html>
